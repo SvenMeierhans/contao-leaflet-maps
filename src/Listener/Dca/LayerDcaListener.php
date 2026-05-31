@@ -145,6 +145,11 @@ class LayerDcaListener extends AbstractListener
         $this->backendAdapter    = $backendAdapter;
     }
 
+    public static function getName() : string
+    {
+        return static::$name;
+    }
+    
     /**
      * Get layer options.
      *
