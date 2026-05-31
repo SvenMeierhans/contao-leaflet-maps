@@ -40,7 +40,7 @@ final class LeafletInsertTagParser extends AbstractSingleInsertTagParser
      *
      * @var string
      */
-    protected $tagName = 'leaflet';
+    protected string $tagName = 'leaflet';
 
     /**
      * The map service.
