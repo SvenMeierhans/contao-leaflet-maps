@@ -92,7 +92,12 @@ class MapDcaListener extends AbstractListener
         $this->translator        = $translator;
         $this->session           = $session;
     }
-
+    
+    public static function getName() : string
+    {
+        return static::$name;
+    }
+    
     /**
      * Add warnings for incomplete configurations.
      *
