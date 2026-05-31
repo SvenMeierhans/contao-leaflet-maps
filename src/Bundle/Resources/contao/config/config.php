@@ -14,35 +14,35 @@
  * Backend module.
  */
 
-array_insert(
-    $GLOBALS['BE_MOD'],
-    1,
-    [
-        'leaflet' => [
-            'leaflet_map'   => [
-                'tables'     => [
-                    'tl_leaflet_map',
-                    'tl_leaflet_control',
-                ],
-                'icon'       => 'bundles/netzmachtcontaoleaflet/img/map.png',
-                'stylesheet' => 'bundles/netzmachtcontaoleaflet/css/backend.css',
+$leafletModules = [
+    'leaflet' => [
+        'leaflet_map'   => [
+            'tables'     => [
+                'tl_leaflet_map',
+                'tl_leaflet_control',
             ],
-            'leaflet_layer' => [
-                'tables'     => [
-                    'tl_leaflet_layer',
-                    'tl_leaflet_marker',
-                    'tl_leaflet_vector',
-                    'tl_leaflet_icon',
-                    'tl_leaflet_style',
-                    'tl_leaflet_popup',
-                ],
-                'icon'       => 'bundles/netzmachtcontaoleaflet/img/layers.png',
-                'stylesheet' => 'bundles/netzmachtcontaoleaflet/css/backend.css',
-                'javascript' => 'bundles/netzmachtcontaoleaflet/js/backend.js',
-            ],
+            'icon'       => 'bundles/netzmachtcontaoleaflet/img/map.png',
+            'stylesheet' => 'bundles/netzmachtcontaoleaflet/css/backend.css',
         ],
-    ]
-);
+        'leaflet_layer' => [
+            'tables'     => [
+                'tl_leaflet_layer',
+                'tl_leaflet_marker',
+                'tl_leaflet_vector',
+                'tl_leaflet_icon',
+                'tl_leaflet_style',
+                'tl_leaflet_popup',
+            ],
+            'icon'       => 'bundles/netzmachtcontaoleaflet/img/layers.png',
+            'stylesheet' => 'bundles/netzmachtcontaoleaflet/css/backend.css',
+            'javascript' => 'bundles/netzmachtcontaoleaflet/js/backend.js',
+        ],
+    ],
+];
+
+$GLOBALS['BE_MOD'] = array_slice($GLOBALS['BE_MOD'], 0, 1, true)
+    + $leafletModules
+    + array_slice($GLOBALS['BE_MOD'], 1, null, true);
 
 if (defined('TL_MODE') && TL_MODE === 'BE') {
     $GLOBALS['TL_CSS'][] = 'bundles/netzmachtcontaoleaflet/css/backend_global.css';
