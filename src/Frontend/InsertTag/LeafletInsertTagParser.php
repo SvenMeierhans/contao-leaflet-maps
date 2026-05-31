@@ -71,7 +71,7 @@ final class LeafletInsertTagParser extends AbstractSingleInsertTagParser
     /**
      * {@inheritDoc}
      */
-    protected function parseTag(array $arguments, string $tag, string $raw)
+    protected function parseTag(array $arguments, string $tag, string $raw) : bool|string
     {
         if (empty($arguments['mapId'])) {
             return '';
