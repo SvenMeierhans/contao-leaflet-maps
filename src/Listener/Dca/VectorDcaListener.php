@@ -62,6 +62,11 @@ class VectorDcaListener extends AbstractListener
         $this->repositoryManager = $repositoryManager;
     }
 
+    public static function getName() : string
+    {
+        return static::$name;
+    }
+    
     /**
      * Get the vector options.
      *
