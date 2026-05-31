@@ -30,7 +30,7 @@
     "contao/core-bundle": "^5.7",
     "doctrine/dbal": "^3.6",
     "menatwork/contao-multicolumnwizard-bundle": "^3.4",
-    "netzmacht/contao-leaflet-geocode-widget": "^1.2",
+    "netzmacht/contao-leaflet-geocode-widget": "^1.4",
     "netzmacht/contao-leaflet-libraries": "^1.7.1.1",
     "netzmacht/contao-page-context": "~1.0",
     "netzmacht/contao-toolkit": "^4.0",
