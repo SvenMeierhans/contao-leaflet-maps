@@ -77,6 +77,11 @@ class ControlDcaListener extends AbstractListener
         $this->repositoryManager = $repositoryManager;
     }
 
+    public static function getName() : string
+    {
+        return static::$name;
+    }
+    
     /**
      * Get control types.
      *
