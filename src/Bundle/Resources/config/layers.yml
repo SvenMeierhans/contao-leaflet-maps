@@ -58,7 +58,7 @@ services:
   netzmacht.contao_leaflet.layer_label_renderer:
     class: Netzmacht\Contao\Leaflet\Backend\Renderer\Label\Layer\ChainRenderer
     arguments:
-      - []
+      - !tagged_iterator 'netzmacht.contao_leaflet.layer_label_renderer'
 
   netzmacht.contao_leaflet.layer_label_renderer.markers:
     class: Netzmacht\Contao\Leaflet\Backend\Renderer\Label\Layer\MarkersLabelRenderer
