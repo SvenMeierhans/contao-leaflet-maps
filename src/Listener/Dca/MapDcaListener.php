@@ -24,7 +24,7 @@ use Netzmacht\Contao\Toolkit\Data\Model\RepositoryManager;
 use Netzmacht\Contao\Toolkit\Dca\Listener\AbstractListener;
 use Netzmacht\Contao\Toolkit\Dca\Manager;
 use Netzmacht\Contao\Toolkit\Dca\Options\OptionsBuilder;
-use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Contracts\Translation\TranslatorInterface as Translator;
 
 /**
@@ -63,11 +63,11 @@ class MapDcaListener extends AbstractListener
     private $translator;
 
     /**
-     * Session.
+     * Request stack.
      *
-     * @var Session
+     * @var RequestStack
      */
-    private $session;
+    private $requestStack;
 
     /**
      * Construct.
@@ -76,21 +76,21 @@ class MapDcaListener extends AbstractListener
      * @param Connection        $connection        Database connection.
      * @param RepositoryManager $repositoryManager Repository manager.
      * @param Translator        $translator        Translator.
-     * @param Session           $session           Session.
+     * @param RequestStack      $requestStack      Request stack.
      */
     public function __construct(
         Manager $manager,
         Connection $connection,
         RepositoryManager $repositoryManager,
         Translator $translator,
-        Session $session
+        RequestStack $requestStack
     ) {
         parent::__construct($manager);
 
         $this->connection        = $connection;
         $this->repositoryManager = $repositoryManager;
         $this->translator        = $translator;
-        $this->session           = $session;
+        $this->requestStack      = $requestStack;
     }
     
     public static function getName() : string
@@ -119,7 +119,7 @@ class MapDcaListener extends AbstractListener
         }
 
         if ($map->zoom === null || $map->zoom === '') {
-            $this->session->getFlashBag()->add(
+            $this->requestStack->getSession()->getFlashBag()->add(
                 'contao.BE.info',
                 $this->translator->trans('ERR.leafletMissingZoomLevel', [], 'contao_default')
             );
