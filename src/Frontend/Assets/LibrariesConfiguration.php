@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 namespace Netzmacht\Contao\Leaflet\Frontend\Assets;
 
-use Contao\CoreBundle\Framework\ContaoFrameworkInterface as ContaoFramework;
+use Contao\CoreBundle\Framework\ContaoFramework;
 use Traversable;
 
 /**

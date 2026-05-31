@@ -12,7 +12,7 @@
 
 namespace Netzmacht\Contao\Leaflet\Frontend;
 
-use Contao\CoreBundle\Framework\ContaoFrameworkInterface as ContaoFramework;
+use Contao\CoreBundle\Framework\ContaoFramework;
 use Contao\InsertTags;
 
 /**
